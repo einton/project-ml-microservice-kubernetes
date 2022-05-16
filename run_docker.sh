@@ -9,4 +9,4 @@ docker build --tag=micro-app .
 docker images
 
 # Step 3: 
- docker run -it --rm -p 8000:80 --name my-micro-app micro-app 
+docker run -it --rm -p 8000:80 --name my-micro-app micro-app 

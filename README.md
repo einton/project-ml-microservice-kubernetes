@@ -45,6 +45,19 @@ source .devops/bin/activate
 ### Kubernetes Steps
 
 * Setup and Configure Docker locally
+1. Install docker: `brew install docker`
+2. Create docker login password file: `touch ~/my_password.txt && echo <password> >> ~/my_password.txt`
+3. Login to docker: `cat ~/my_password.txt | docker login --username < docker username > --password-stdin`
+
 * Setup and Configure Kubernetes locally
+1. Install Kubernetes Cluster manager:  `brew install minikube`
+2. Start cluster: `minikube start`
+
 * Create Flask app in Container
+1. Create Dockerfile: copy `app.py` into python enviroment (python image) with expose port 80 and run
+2. Build image: `docker build --tag=<image name> .`
+3. Run container: `docker run -it --rm -p <port outside>:<port inside> --name <contrainder name> <image name>`
+
 * Run via kubectl
+1. Run the Docker Hub container from image: `kubectl create deploy <app name> --image=<image name>`
+2. Forward the container port to a host: `kubectl port-forward <contianer name> --address 0.0.0.0 <port outside>:<port inside>`

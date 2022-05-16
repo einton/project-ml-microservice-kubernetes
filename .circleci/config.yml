@@ -34,4 +34,5 @@ jobs:
           name: run lint
           command: |
             . ~/.devops/bin/activate
+            which python
             make lint 
